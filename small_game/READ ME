@@ -1,0 +1,62 @@
+题目要求：
+1. Blue square must be able to move when you press four direction keys.
+
+蓝方块必须能受方向键的控制。
+
+2. Red square should be able to chase the blue one.
+
+红方块必须能自动追赶蓝方块。
+
+3. Your game could end or pause when the red square catches the blue one.
+
+当红方块抓到蓝方块时，你的游戏可以停止或暂停。
+
+4. Your game could save the record when it is closed before you lose the game.
+
+And your game should read the record and continue at the next time when you open it.
+
+当游戏被中途关闭时，游戏可以自动存档，并在下一次打开时自动读档并继续进行。
+
+5. You could design a map and use it to confine the route where the blue square can go.
+
+你可以设计地图并用它来限制蓝方块可以走的路线。
+
+6. You could design and show a win and lose ending screen when you win or lose the game.
+
+你可以设计并显示输和赢的画面。
+
+
+已经实现的部分：
+创建窗口
+用二维数组画一个地图
+创建一个可以正常操作的角色（蓝方块）
+可以创建障碍物
+角色可以识别障碍物并被挡住
+角色可以有加速技能（按住shift 速度变为原来的速度的几倍（Player_accelerate）, 非必要）
+
+没有完全实现的部分：
+角色不能识别敌人（碰到敌人不会死）
+敌人好像不能想预想的一样移动
+在操作角色时遇到了未知的bug: 有的时后会频繁的自动触发像一个方向的操作，尤其是使用了加速技能之后，在撞到地图边缘的时后大概率触发
+
+没有实现的部分：
+读档
+设置game over画面
+没有把出冗余的函数删掉
+
+所有有关绘制图像的方法都是在RunGame里面实现的，Player, Enemy, Block 只提供数据，大部分数据以字典的形式交互，
+
+WindowConstructor有部分的绘图函数，但是不可以自己创建窗口
+
+Enemy是Player的子类，思路是在Player的基础上加入自动控制的函数
+
+RunGame中变量的格式是 大写开头的变量所有者（Player_,Enemy_ ...）加上变量的类型（Player_width, Player_Color...）
+
+ID_...是每种物体在地图上的代号，在Window的父类Map中有读取地图上的数值的函数
+
+
+
+
+
+
+
