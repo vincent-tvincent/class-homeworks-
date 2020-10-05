@@ -28,7 +28,7 @@ class Enemy(Player):
         if self.motivation["X move"] != "*":
             x_move = self.can_move("x",self.motivation["X move"])
         if self.motivation["Y move"] != "*":
-            y_move = self.can_move("y",self.motivation["X move"])
+            y_move = self.can_move("y",self.motivation["Y move"])
         return x_move and y_move
 
     def wandering(self):
