@@ -97,6 +97,7 @@ def draw_frame():
     World.fill(World_data_set["color"])
     World_map.draw_rectangle(Player.get_data(),ID_player)
     World_map.draw_rectangle(Enemy.get_data(),ID_enemy)
+    World_map.draw_rectangle(Block_1,ID_block)
     pygame.display.update()
 
 
