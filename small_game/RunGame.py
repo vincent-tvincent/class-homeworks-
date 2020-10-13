@@ -61,6 +61,23 @@ Enemy = Enemy(World_map,Enemy_data_set,Enemy_accelerate,ID_enemy,ID_block,Enemy_
 clock = pygame.time.Clock()
 
 # functions
+def if_save(keys,location): 
+    if keys[pygame.K_LCTRL] and keys[pygame.K_s]: 
+        process_record(location,"w")
+        
+def if_read(keys):
+    (Player_x, Player_y, Enemy_x, Enemy_y) = process_record("r")
+
+def process_record(mode,location = None): 
+    f = open("record.txt", mode)
+    if mode == "w":
+        f.write(str(location["x"]) + "\t" + str(location["y"]) + "\t" + str(location["e_x"]) + "\t" + str(location["e_y"]))
+        f.close()
+    elif mode == "r": 
+        record = f.readline().split("\t")
+        f.close()
+        return record
+      
 def make_block(x,y,length,width):
     return {"color": Block_color, "visual": (x,y,length,width),"draw_x": x,"draw_y": y,"width": width, "length": length}
 
